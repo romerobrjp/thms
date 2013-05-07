@@ -1,0 +1,26 @@
+<%- model_class = Tenement -%>
+<div class="page-header">
+  <h1><%=t '.title' %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:townhouse) %></th>
+      <th><%= model_class.human_attribute_name(:location) %></th>
+      <th><%= model_class.human_attribute_name(:rent_value) %></th>
+      <th><%=t 'helpers.actions' %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tenements.each do |tenement| %>
+      <tr>
+        <td><%= tenement.townhouse.name %></td>
+        <td><%= tenement.location %></td>
+        <td><%= tenement.rent_value %></td>
+        <td>
+          <%= link_to t("helpers.links.select"), tenant_tenement_path(tenement), :class => 'btn btn-mini' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

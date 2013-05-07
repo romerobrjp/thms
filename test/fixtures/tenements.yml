@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  location: MyString
+  rent_value: 9.99
+  user: 
+  townhouse: 
+
+two:
+  location: MyString
+  rent_value: 9.99
+  user: 
+  townhouse: 

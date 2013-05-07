@@ -1,0 +1,16 @@
+<div class="page-header">
+  <h4><%= t 'misc.answers_comments' %></h4>
+</div>
+<% answers.each do |answer| %>
+  <%= render partial: 'shared/answers/answer', locals: { answer: answer } %>
+<% end %>
+
+<% if answers.empty? %>
+  <p class="muted lead"><%= t('misc.empty_answers') %></p>
+<% end %>
+
+
+<%= render partial: 'shared/answers/form', locals: { 
+     answerable: answerable,
+     redirect_url: redirect_url 
+} %>

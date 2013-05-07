@@ -1,0 +1,12 @@
+pt-BR:
+ activerecord:
+  models:
+    expense_type: 
+      one: 'Tipo de Despesa'
+      other: 'Tipos de Despesa'
+  attributes:
+    expense_type:
+      type: 'Tipo'
+      description: 'Descrição'
+      date: 'Data'
+      value: 'Valor'

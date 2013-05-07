@@ -1,0 +1,9 @@
+<%= simple_form_for [:syndic, @townhouse, @expense_type], :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.association :townhouse, collection: @townhouses %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('helpers.links.cancel'), syndic_townhouse_expense_types_path(@townhouse), :class => 'btn' %>
+  </div>
+<% end %>

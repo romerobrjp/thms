@@ -1,0 +1,33 @@
+<%= simple_nested_form_for [:syndic, @townhouse], :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :information %>
+
+  <%= f.fields_for :address do |address_form| %>
+    <%= render partial: 'shared/addresses/form', locals: { f: address_form } %>
+  <% end %>
+
+  <%= render partial: 'shared/phones/nested_form', locals: { f: f } %>  
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t("helpers.links.cancel"), syndic_townhouses_path, :class => 'btn' %>
+  </div>
+
+<% end %>
+
+<% content_for :javascripts do %>
+  $(function(){
+    $("#townhouse_address_attributes_state_id").change(function(){
+      state_id = $(this).val();
+      if (state_id != null) {
+        $.get("<%= cities_path %>", {state_id : state_id}, function(data) {
+          $("#townhouse_address_attributes_city_id").empty();
+          $.each(data, function(key, value) {
+            $("#townhouse_address_attributes_city_id").append(new Option(value.name, value.id));
+          });
+          $("#townhouse_address_attributes_city_id").trigger("liszt:updated");
+        });
+      }
+    });
+  });
+<% end %>

@@ -1,0 +1,31 @@
+<%- model_class = Tenement -%>
+<div class="page-header">
+  <h1><%=t '.title' %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:location) %></th>
+      <th><%= model_class.human_attribute_name(:tenant) %></th>
+      <th><%=t "helpers.actions" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tenements.each do |tenement| %>
+      <tr>
+        <td><%= tenement.location %></td>
+        <td><%= tenement.tenant.name %></td>
+        <td>
+          <%= link_to t("helpers.links.show"), syndic_townhouse_tenement_path(@townhouse, tenement), :class => 'btn btn-mini btn-info' %>
+          <%= link_to t("helpers.links.edit"), edit_syndic_townhouse_tenement_path(@townhouse, tenement), :class => 'btn btn-mini' %>
+          <%= link_to t("helpers.links.destroy"), syndic_townhouse_tenement_path(@townhouse, tenement),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t("helpers.links.new"), new_syndic_townhouse_tenement_path(@townhouse), :class => 'btn btn-primary' %>

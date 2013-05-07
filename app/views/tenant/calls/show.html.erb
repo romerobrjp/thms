@@ -1,0 +1,27 @@
+<%- model_class = Call -%>
+<div class="page-header">
+  <h1><%= model_class.model_name.human %> #<%= @call.id %></h1>
+</div>
+
+<%= render partial: 'shared/calls/call' %>
+
+<% unless @call.draft? %>
+<%= render partial: 'shared/answers/answers', locals: { 
+  answers: @call.answers,
+  answerable: @call,
+  redirect_url: tenant_tenement_call_path(@tenement, @call)
+} %>
+<% end %>
+
+
+<div class="form-actions">
+  <%= link_to t('helpers.links.back'), tenant_tenement_calls_path(@tenement), :class => 'btn'  %>
+  <% if @call.draft? %>
+    <%= link_to t('helpers.links.publish'), tenant_tenement_call_publish_path(@tenement, @call), :class => 'btn btn-warning' %>
+    <%= link_to t('helpers.links.edit'), edit_tenant_tenement_call_path(@tenement, @call), :class => 'btn' %>
+    <%= link_to t('helpers.links.destroy'), tenant_tenement_call_path(@tenement, @call),
+              :method => 'delete',
+              :data => { :confirm => t('helpers.links.confirm') },
+              :class => 'btn btn-danger' %>
+  <% end %>
+</div>

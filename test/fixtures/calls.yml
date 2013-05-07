@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  subject: MyString
+  message: MyText
+  public: false
+  townhouse: 
+  tenement: 
+
+two:
+  subject: MyString
+  message: MyText
+  public: false
+  townhouse: 
+  tenement: 

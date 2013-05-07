@@ -1,0 +1,5 @@
+pt-BR:
+  attachment:
+    misc:
+      add_attachment: 'Adicionar anexo'
+      remove_attachment: 'Remover esse anexo'

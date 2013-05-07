@@ -1,0 +1,11 @@
+<legend>
+  <h3><%= Phone.model_name.human %></h3>
+</legend>
+<%= f.simple_fields_for :phones do |phone_form| %>
+  <div class="well well-small">
+    <%= phone_form.input :number %>
+    <%= phone_form.input :description %>
+    <%= phone_form.link_to_remove t('phone.misc.remove_phone') %>
+  </div>
+<% end %>
+<%= f.link_to_add t('phone.misc.add_phone'), :phones %>

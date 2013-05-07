@@ -1,0 +1,11 @@
+pt-BR:
+ activerecord:
+  models:
+    syndic: 
+      one: 'Síndico'
+      other: 'Síndicos'
+  attributes:
+    syndic:
+      name: 'Nome'
+      cpf: 'CPF'
+      email: 'Email'

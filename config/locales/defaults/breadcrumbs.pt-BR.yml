@@ -1,0 +1,45 @@
+pt-BR:
+  breadcrumbs:
+    tenant:
+      base:
+        index: Página Principal
+      calls:
+        calls: :activerecord.models.call.other
+        tenements: :activerecord.models.tenement.other
+        new: "Novo"
+      tenements:
+        tenements: :activerecord.models.tenement.other
+      bulletins:
+        bulletins: :activerecord.models.bulletin.other
+        tenements: :activerecord.models.tenement.other
+      me:
+        me: :tenant.me.show.title
+        edit_me: :tenant.me.edit.title
+    syndic:
+      base:
+        index: 'Página Principal'
+      townhouses:
+        townhouses: :activerecord.models.townhouse.other
+        edit: Editar condomínio
+      bulletins:
+        bulletins: :activerecord.models.bulletin.other
+        townhouses: :activerecord.models.townhouse.other
+        edit: Editar comunicado
+        new: Novo comunicado
+      tenements:
+        townhouses: :activerecord.models.townhouse.other
+        tenements: :activerecord.models.tenement.other
+        edit: :activerecord.models.tenement.other
+        new: Novo imóvel
+      calls:
+        townhouses: :activerecord.models.townhouse.other
+        calls: :activerecord.models.call.other
+      expenses:
+        townhouses: :activerecord.models.townhouse.other
+        expenses: :activerecord.models.expense.other
+      incomes:
+        townhouses: :activerecord.models.townhouse.other
+        incomes: :activerecord.models.income.other
+      me:
+        me: :syndic.me.show.title
+        edit_me: :syndic.me.edit.title

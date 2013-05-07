@@ -1,0 +1,13 @@
+pt-BR:
+ activerecord:
+  models:
+    townhouse: 
+      one: 'Condomínio'
+      other: 'Condomínios'
+  attributes:
+    townhouse:
+      name: 'Nome'
+      information: 'Informações'
+      townhouse: 'Condomínio'
+      location: 'Localização'
+      rent_value: 'Valor do condomínio'

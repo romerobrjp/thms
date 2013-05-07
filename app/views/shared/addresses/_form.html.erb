@@ -1,0 +1,10 @@
+<legend>
+  <h3><%= Address.model_name.human %></h3>
+</legend>
+<%= f.input :street %>
+<%= f.input :number %>
+<%= f.input :complement %>
+<%= f.input :district %>
+<%= f.association :state, input_html: { class: 'chzn-select'} %>
+<%= f.association :city, input_html: { class: 'chzn-select'} %>
+<%= f.input :zip_code %>

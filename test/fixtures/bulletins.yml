@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  message: MyText
+  syndic: 
+  townhouse: 
+  draft: false
+  sent_at: 2013-04-21 23:48:24
+
+two:
+  message: MyText
+  syndic: 
+  townhouse: 
+  draft: false
+  sent_at: 2013-04-21 23:48:24

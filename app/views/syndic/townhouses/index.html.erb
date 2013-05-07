@@ -1,0 +1,24 @@
+<%- model_class = Townhouse -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:information) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @townhouses.each do |townhouse| %>
+      <tr>
+        <td><%= townhouse.name %></td>
+        <td><%= townhouse.information %></td>
+        <td>
+          <%= link_to t('.select', :default => t("helpers.links.select")), syndic_townhouse_path(townhouse), :class => 'btn btn-mini' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

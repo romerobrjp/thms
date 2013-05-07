@@ -1,0 +1,26 @@
+<%- model_class = User -%>
+<div class="page-header">
+  <h1><%=t '.title' %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @user.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cpf) %>:</strong></dt>
+  <dd><%= @user.cpf %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:type) %>:</strong></dt>
+  <dd><%= @user.type %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @user.email %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:last_sign_in_at) %>:</strong></dt>
+  <dd><%= l(@user.last_sign_in_at, format: :long) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:last_sign_in_ip) %>:</strong></dt>
+  <dd><%= @user.last_sign_in_ip %></dd>
+</dl>
+
+<%= render partial: 'shared/addresses/address', locals: {address: @user.address } %>
+<%= render partial: 'shared/phones/phones', locals: {phones: @user.phones } %>
+
+<div class="form-actions">
+  <%= link_to t('helpers.links.edit'), syndic_edit_me_path, :class => 'btn' %>
+</div>

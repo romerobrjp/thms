@@ -1,0 +1,15 @@
+<%- model_class = Expense -%>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:type) %>:</strong></dt>
+  <dd><%= expense.type.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= expense.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:date) %>:</strong></dt>
+  <dd><%= expense.date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:value) %>:</strong></dt>
+  <dd><%= expense.value %></dd>
+</dl>
+
+<span>
+  <%= render partial: 'shared/attachments/attachments', locals: { attachments: expense.attachments } %>
+</span>

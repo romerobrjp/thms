@@ -1,0 +1,17 @@
+<div class="fill_width">
+  <h3><%= @bulletin.subject %></h3>
+  <p><%= @bulletin.message.html_safe %></p>
+  <div>
+    <% unless @bulletin.draft? %>
+      <span class="badge"><%= t 'misc.published_at' %> <%= @bulletin.sent_at %></span>
+    <% end %>
+    <span class="label"><%= @bulletin.syndic.name %></span>
+  </div>
+  <hr />
+  <span>
+    <%= render partial: 'shared/attachments/attachments', locals: { attachments: @bulletin.attachments } %>
+  </span>
+</div>
+<hr />
+
+

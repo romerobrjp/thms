@@ -1,0 +1,19 @@
+<div class="fill_width">
+  <h3><%= @call.subject %></h3>
+  <p><%= @call.message %></p>
+  <div>
+    <% unless @call.draft? %>
+      <span class="badge"><%= t 'misc.published_at' %> <%= l @call.sent_at, format: :short %></span>
+    <% else %>
+      <span class="badge"><%= t 'misc.draft' %></span>
+    <% end %>
+    <span class="label"><%= @call.tenement.tenant.name %> - <%= @call.tenement.location %></span>
+    <hr />
+    <span>
+      <%= render partial: 'shared/attachments/attachments', locals: { attachments: @call.attachments } %>
+    </span>    
+  </div> 
+</div>
+<hr />
+
+

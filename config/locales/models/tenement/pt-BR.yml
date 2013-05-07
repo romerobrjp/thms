@@ -1,0 +1,12 @@
+pt-BR:
+ activerecord:
+  models:
+    tenement: 
+      one: 'Imóvel'
+      other: 'Imóveis'
+  attributes:
+    tenement:
+      townhouse: 'Condomínio'
+      location: 'Localização'
+      rent_value: 'Valor do condomínio'
+      tenant: 'Condômino'

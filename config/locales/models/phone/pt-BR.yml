@@ -1,0 +1,14 @@
+pt-BR:
+  phone:
+    misc:
+      add_phone: 'Adicionar telefone'
+      remove_phone: 'Remover esse telefone'
+  activerecord:
+    models:
+      phone: 
+        one: 'Telefone'
+        other: 'Telefones'
+    attributes:
+      phone:
+        number: 'Número'
+        description: 'Descrição'

@@ -1,0 +1,25 @@
+<div class="modal hide fade" id="tenantRegisterModal">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3>Have an Account?</h3> 
+  </div>
+  <div class="modal-body">
+    
+    <div class="well">
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#info" data-toggle="tab"><%= t '.basic_info' %></a></li>
+        <li><a href="#address" data-toggle="tab"><%= t '.address' %></a></li>
+        <li><a href="#phones" data-toggle="tab"><%= t '.phones' %></a></li>
+      </ul>
+      <%= simple_nested_form_for @tenant do %>
+        <div id="myTabContent" class="tab-content">
+          <div class="tab-pane active in" id="info">
+          </div>
+          <div class="tab-pane fade" id="address">
+          </div>
+          <div class="tab-pane fade" id="phones">
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>

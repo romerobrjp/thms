@@ -1,0 +1,36 @@
+<%- model_class = Income -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:type) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:date) %></th>
+      <th><%= model_class.human_attribute_name(:value) %></th>
+      <th><%=t 'helpers.actions' %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @incomes.each do |income| %>
+      <tr>
+        <td><%= income.type.name %></td>
+        <td><%= income.description %></td>
+        <td><%= l income.date %></td>
+        <td><%= income.value %></td>
+        <td>
+          <%= link_to t('helpers.links.show'), syndic_townhouse_income_path(@townhouse, income), :class => 'btn btn-mini btn-info' %>
+          <%= link_to t('helpers.links.edit'), edit_syndic_townhouse_income_path(@townhouse, income), :class => 'btn btn-mini' %>
+          <%= link_to t('helpers.links.destroy'), syndic_townhouse_income_path(@townhouse, income),
+                      :method => :delete,
+                      :data => { :confirm => t("helpers.links.confirm") },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")), new_syndic_townhouse_income_path, :class => 'btn btn-primary' %>
+<%= render :partial => 'sidebar' %>

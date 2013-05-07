@@ -1,0 +1,13 @@
+pt-BR:
+ activerecord:
+  models:
+    address: 'Endereço'
+  attributes:
+    address:
+      street: 'Rua'
+      number: 'Número'
+      district: 'Bairro'
+      zip_code: 'CEP'
+      complement: 'Complemento'
+      city: 'Cidade'
+      state: 'Estado'

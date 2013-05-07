@@ -1,0 +1,14 @@
+<%= simple_nested_form_for [:syndic, @townhouse, @bulletin], :html => { :multipart => true } do |f| %>
+  <%= f.input :subject %>
+  <%= f.input :message, input_html: { id: 'text-rich' } %>
+  <%= f.fields_for :attachments do |attachment_form| %>
+    <%= render partial: 'shared/attachments/form', locals: { f: attachment_form } %>
+    <%= attachment_form.link_to_remove t('attachment.misc.remove_attachment') %>
+  <% end %>
+  <%= f.link_to_add t('attachment.misc.add_attachment'), :attachments %>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('helpers.links.cancel'), syndic_townhouse_bulletins_path(@townhouse), :class => 'btn' %>
+  </div>
+<% end %>

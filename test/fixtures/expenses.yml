@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  type: 
+  description: MyString
+  date: 2013-04-25 14:48:32
+  value: 9.99
+
+two:
+  type: 
+  description: MyString
+  date: 2013-04-25 14:48:32
+  value: 9.99

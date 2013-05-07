@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  message: MyText
+  user: 
+  parent: 
+  answerable: 
+
+two:
+  message: MyText
+  user: 
+  parent: 
+  answerable: 

@@ -1,0 +1,14 @@
+pt-BR:
+ activerecord:
+  models:
+    user: 
+      one: 'Usuário'
+      other: 'Usuários'
+  attributes:
+    user:
+      name: 'Nome'
+      cpf: 'CPF'
+      email: 'Email'
+      type: 'Tipo'
+      last_sign_in_at: 'Último login em'
+      last_sign_in_ip: 'IP no último login'

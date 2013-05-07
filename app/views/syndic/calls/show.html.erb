@@ -1,0 +1,23 @@
+<%- model_class = Call -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<%= render partial: 'shared/calls/call' %>
+
+<% unless @call.draft? %>
+  <%= render partial: 'shared/answers/answers', locals: { 
+    answers: @call.answers,
+    answerable: @call,
+    redirect_url: syndic_townhouse_call_path(@townhouse, @call)
+  } %>
+<% end %>
+
+
+<div class="form-actions">
+  <%= link_to t('helpers.links.back'), syndic_townhouse_calls_path(@townhouse), :class => 'btn'  %>
+  <% if @call.published? %>
+    <%= link_to t('helpers.links.accept'), syndic_townhouse_accept_call_path(@townhouse, @call), :class => 'btn btn-success'  %>
+    <%= link_to t('helpers.links.reject'), syndic_townhouse_reject_call_path(@townhouse, @call), :class => 'btn btn-danger'  %>
+  <% end %>
+</div>

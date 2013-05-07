@@ -1,0 +1,19 @@
+<%= simple_nested_form_for [:syndic, @tenant], :html => { :class => 'form-horizontal' } do |f| %>
+  <legend>
+    <h3><%= t 'misc.information' %></h3>
+  </legend>
+  <%= f.input :email %>
+  <%= f.input :name %>
+  <%= f.input :cpf %>
+  <%= hidden_field_tag 'redirect_url', params[:redirect_url] %>
+  
+  <%= f.fields_for :address do |address_form| %>
+    <%= render partial: 'shared/addresses/form', locals: { f: address_form } %>
+  <% end %>
+
+  <%= render partial: 'shared/phones/nested_form', locals: { f: f } %>  
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+  </div>
+<% end %>

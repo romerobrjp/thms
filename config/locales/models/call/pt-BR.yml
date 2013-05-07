@@ -1,0 +1,17 @@
+pt-BR:
+ activerecord:
+  models:
+    call:
+      one: 'Chamado'
+      other: 'Chamados'
+  attributes:
+    call:
+      townhouse: 'Condomínio'
+      location: 'Localização'
+      rent_value: 'Valor do condomínio'
+      subject: 'Assunto'
+      message: 'Mensagem'
+      public: 'Público'
+      tenement: 'Imóvel'
+      sent_at: 'Enviado em'
+      workflow_state: 'Estado'

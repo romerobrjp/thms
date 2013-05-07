@@ -1,0 +1,12 @@
+pt-BR:
+ activerecord:
+  models:
+    income: 
+      one: 'Receita'
+      other: 'Receitas'
+  attributes:
+    income:
+      type: 'Tipo'
+      description: 'Descrição'
+      date: 'Data'
+      value: 'Valor'

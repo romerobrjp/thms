@@ -1,0 +1,16 @@
+<%= simple_nested_form_for [:tenant, @tenement, @call], :html => { :class => 'form-horizontal', multipart: true } do |f| %>
+  <%= f.input :subject %>
+  <%= f.input :message, input_html: { id: 'text-rich' } %>
+  <%= f.input :public %>
+
+  <%= f.simple_fields_for :attachments do |attachment_form| %>
+    <%= render partial: 'shared/attachments/form', locals: { f: attachment_form } %>
+    <%= attachment_form.link_to_remove t('attachment.misc.remove_attachment') %>
+  <% end %>
+  <%= f.link_to_add t('attachment.misc.add_attachment'), :attachments %>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('helpers.links.cancel'), tenant_tenement_calls_path(@tenement), :class => 'btn' %>
+  </div>
+<% end %>

@@ -1,0 +1,41 @@
+<%- model_class = Tenement -%>
+<div class="page-header">
+  <h1><%= model_class.model_name.human %> <%= t 'misc.at' %> <%= @tenement.townhouse.name %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:location) %>:</strong></dt>
+  <dd><%= @tenement.location %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:rent_value) %>:</strong></dt>
+  <dd><%= @tenement.rent_value %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:tenant) %>:</strong></dt>
+  <dd><%= @tenement.tenant.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:townhouse) %>:</strong></dt>
+  <dd><%= @tenement.townhouse.name %></dd>
+</dl>
+
+<%- townhouse_class = Townhouse -%>
+<div class="page-header">
+  <h3><%=t '.title', :default => townhouse_class.model_name.human %></h3>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= townhouse_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @tenement.townhouse.name %></dd>
+  <dt><strong><%= townhouse_class.human_attribute_name(:information) %>:</strong></dt>
+  <dd><%= @tenement.townhouse.information %></dd>
+</dl>
+
+<%= render partial: 'shared/addresses/address', locals: { address: @tenement.townhouse.address } %>
+<%= render partial: 'shared/phones/phones', locals: { phones: @tenement.townhouse.phones } %>
+<%= render partial: 'shared/syndics/syndics', locals: { syndics: @tenement.townhouse.syndics } %>
+
+<% content_for :sidebar do %>
+<div class="well sidebar-nav">
+  <ul class="nav nav-list">
+    <li class="nav-header">Navigation</li>
+    <li><%= link_to Bulletin.model_name.human(:count => 2), tenant_tenement_bulletins_path(@tenement)  %></li>
+    <li><%= link_to Call.model_name.human(:count => 2), tenant_tenement_calls_path(@tenement)  %></li>
+  </ul>
+</div><!--/.well -->
+<% end %>

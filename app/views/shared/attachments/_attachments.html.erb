@@ -1,0 +1,6 @@
+<% attachments.each do |att| %>
+  <%= link_to att.file.url, title: att.description, class: 'btn btn-mini', :rel => 'tooltip' do %>
+    <i class="icon-cloud-download"></i>
+    <%= att.file.file.filename %>
+  <% end %>
+<% end %>

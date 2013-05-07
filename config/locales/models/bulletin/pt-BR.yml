@@ -1,0 +1,12 @@
+pt-BR:
+ activerecord:
+  models:
+    bulletin: 
+      one: 'Comunicado'
+      other: 'Comunicados'
+  attributes:
+    bulletin:
+      subject: 'Assunto'
+      message: 'Mensagem'
+      syndic: 'Síndico'
+      sent_at: 'Enviado em'

@@ -1,0 +1,28 @@
+<%- model_class = Call -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:subject) %></th>
+      <th><%= model_class.human_attribute_name(:public) %></th>
+      <th><%= model_class.human_attribute_name(:tenement) %></th>
+      <th><%=t 'helpers.actions' %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @calls.each do |call| %>
+      <tr>
+        <td><%= link_to call.id, syndic_townhouse_call_path(@townhouse, call) %></td>
+        <td><%= call.subject %></td>
+        <td><%= call.public %></td>
+        <td><%= call.tenement_id %></td>
+        <td>
+          <%= link_to t('helpers.links.show'), syndic_townhouse_call_path(@townhouse, call), :class => 'btn btn-mini btn-info' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

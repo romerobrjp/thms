@@ -1,0 +1,11 @@
+<%= simple_form_for @call, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :subject %>
+  <%= f.input :message %>
+  <%= f.input :public %>
+  <%= f.input :townhouse_id %>
+  <%= f.input :tenement_id %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('helpers.links.cancel'), calls_path, :class => 'btn' %>
+  </div>
+<% end %>

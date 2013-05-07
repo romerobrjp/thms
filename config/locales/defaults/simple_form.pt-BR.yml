@@ -1,0 +1,44 @@
+pt-BR:
+  simple_form:
+    "yes": 'Sim'
+    "no": 'Não'
+    required:
+      text: 'obrigatório'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Por favor verifique os erros abaixo:"
+    # Labels and hints examples
+    labels:
+      defaults:
+        email: 'Email'
+        password: 'Senha'
+        name: 'Nome'
+        cpf: 'CPF'
+        tenant: 'Condômino'
+        message: 'Mensagem'
+        subject: 'Assunto'
+        public: 'Público'
+        file: 'Arquivo'
+        description: 'Descrição'
+    placeholders:
+      tenement:
+        location: 'Apartamento #, bloco #, etc.'
+        rent_value: '120,00'
+      phone:
+        description: 'Casa, trabalho, fax, etc.'
+      tenant:
+        phones: :simple_form.placeholders.phone
+      townhouse:
+        phones: :simple_form.placeholders.phone
+        information: 'Breve descrição, detalhes, etc.'
+    hints:
+      user:
+        type: 'Perfil do seu usuário'
+      call:
+        public: 'Todos os condôminos do condomínio podem ver'
+      attachment:
+        description: 'Breve descrição do arquivo'
+

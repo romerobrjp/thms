@@ -1,0 +1,12 @@
+pt-BR:
+ activerecord:
+  models:
+    income_type: 
+      one: 'Tipo de Receita'
+      other: 'Tipos de Receita'
+  attributes:
+    income_type:
+      name: 'Nome'
+      description: 'Descrição'
+      townhouse: 'Condomínio'
+      value: 'Valor'
