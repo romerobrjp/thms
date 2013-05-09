@@ -9,8 +9,21 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require chosen
- *= require_tree .
+ *= require bootstrap_and_overrides
+ *= require jquery-ui-1.8.21.custom.css
+ *= require fullcalendar.css
+ *= require chosen.css
+ *= require uniform.default.css
+ *= require jquery.cleditor.css
+ *= require jquery.noty.css
+ *= require noty_theme_default.css
+ *= require elfinder.min.css
+ *= require elfinder.theme.css
+ *= require jquery.iphone.toggle.css
+ *= require uploadify.css
+ *= require jquery.gritter.css
+ *= require style
+ *= require style-responsive
  */
 
 

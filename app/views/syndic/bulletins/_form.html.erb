@@ -1,6 +1,6 @@
 <%= simple_nested_form_for [:syndic, @townhouse, @bulletin], :html => { :multipart => true } do |f| %>
   <%= f.input :subject %>
-  <%= f.input :message, input_html: { id: 'text-rich' } %>
+  <%= f.input :message, input_html: { class: 'cleditor' } %>
   <%= f.fields_for :attachments do |attachment_form| %>
     <%= render partial: 'shared/attachments/form', locals: { f: attachment_form } %>
     <%= attachment_form.link_to_remove t('attachment.misc.remove_attachment') %>

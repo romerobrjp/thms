@@ -1,6 +1,6 @@
 <div class="well well-small">
   <h5><%= answer.user.name %></h5>
-  <p><%= answer.message %></p>
+  <p><%= answer.message.html_safe %></p>
   <div>
     <small class="muted"><%= t('misc.posted') %> <%= l(answer.created_at, format: :long) %></small>
     <span class="pull-right">

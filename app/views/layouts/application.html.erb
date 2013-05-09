@@ -13,31 +13,42 @@
     <![endif]-->
 
     <%= stylesheet_link_tag "application", :media => "all" %>
-    <!-- For all other devices -->
-    <!-- Size should be 32 x 32 pixels -->
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
   </head>
   <body>
-
-    <div class="navbar navbar-fluid-top">
+    <div id="overlay">
+    <ul>
+      <li class="li1"></li>
+      <li class="li2"></li>
+      <li class="li3"></li>
+      <li class="li4"></li>
+      <li class="li5"></li>
+      <li class="li6"></li>
+    </ul>
+  </div>
+    <div class="navbar">
       <div class="navbar-inner">
         <div class="container-fluid">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+          <a class="btn btn-navbar" data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse" data-toggle="collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <%= link_to 'SCGC', root_path, class: 'brand', title: 'Sistema de Controle e Gerenciamento de Condomínios' %>
-          <div class="container-fluid nav-collapse">
-            <ul class="nav">
-              <li><%= link_to "About", about_path  %></li>
-            </ul>
+          <%= link_to root_path, class: 'brand', title: 'Sistema de Controle e Gerenciamento de Condomínios' do %>
+            <span class="hidden-phone">Sistema de Controle e Gerenciamento de Condomínios</span>
+          <% end %>
+          <div class="nav-no-collapse header-nav">
             <ul class="nav pull-right">
-              <% if user_signed_in? %>
-                <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-              <% else %>
-                <li><%= link_to('Login', new_user_session_path) %></li>
-              <% end %>
+              <li class="dropdown">
+                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                  <i class="icon-user icon-white"></i>
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#"><i class="icon-user"></i> Profile</a></li>
+                  <li><a href="login.html"><i class="icon-off"></i> Logout</a></li>
+                </ul>
+              </li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -46,23 +57,38 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "/path1"  %></li>
+        <div class="span2 main-menu-span">
+          <div class="nav-collapse sidebar-nav">
+            <ul class="nav nav-tabs nav-stacked main-menu">
+              <li class="active"><a href="index.html"><i class="icon-home icon-white"></i><span class="hidden-tablet"> Dashboard</span></a></li>
+              <li><a href="ui.html"><i class="icon-eye-open icon-white"></i><span class="hidden-tablet"> UI Features</span></a></li>
+              <li>
+                <a class="dropmenu" href="#"><i class="fa-icon-folder-close-alt"></i><span class="hidden-tablet"> Dropdown</span></a>
+                <ul>
+                  <li><a class="submenu" href="submenu.html"><i class="fa-icon-file-alt"></i><span class="hidden-tablet"> Sub Menu 1</span></a></li>
+                  <li><a class="submenu" href="submenu.html"><i class="fa-icon-file-alt"></i><span class="hidden-tablet"> Sub Menu 2</span></a></li>
+                  <li><a class="submenu" href="submenu.html"><i class="fa-icon-file-alt"></i><span class="hidden-tablet"> Sub Menu 3</span></a></li>
+                </ul> 
+              </li>
             </ul>
           </div><!--/.well -->
-        </div><!--/span-->
-        <div class="span9">
-          <%= bootstrap_flash %>
-          <%= yield %>
         </div>
-      </div><!--/row-->
 
+        <div id="content" class="span10" style="min-height: 316px;">
+          <!-- start: Content -->
+          <%= render_breadcrumbs %>
+          <%= yield %>
+          <hr />
+          <!-- end: Content -->
+        </div>        
+      </div>
+      <div class="clearfix"></div>
       <footer>
-      </footer>
-
+      <p>
+        <span style="text-align:left;float:left">© <a href="http://clabs.co" target="_blank">creativeLabs</a> 2013</span>
+        <span style="text-align:right;float:right">Powered by: <a href="#">Perfectum Dashboard</a></span>
+      </p>
+    </footer>
     </div> <!-- /container -->
 
     <!-- Javascripts

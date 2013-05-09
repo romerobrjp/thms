@@ -22,7 +22,6 @@ end
 
 gem 'jquery-rails'
 gem "twitter-bootstrap-rails"
-gem 'chosen-rails'
 gem 'devise'
 gem 'simple_form'
 gem "nested_form"

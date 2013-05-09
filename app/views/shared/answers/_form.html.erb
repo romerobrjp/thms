@@ -2,7 +2,7 @@
   <legend>
     <h4><%= t 'misc.write_answer_comment' %></h4>
   </legend>
-  <%= f.input :message, as: 'text', input_html: { rows: 5, class: 'fill_width', id: 'text-rich' } %>
+  <%= f.input :message, as: 'text', input_html: { rows: 5, class: 'cleditor' } %>
   <%= f.input :answerable_id, as: 'hidden', input_html: { value: answerable.id } %>
   <%= f.input :answerable_type, as: 'hidden', input_html: { value: answerable.class.name } %>
   <%= hidden_field_tag 'redirect_url', redirect_url %>
