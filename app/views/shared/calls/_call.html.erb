@@ -1,6 +1,6 @@
 <div class="fill_width">
   <h3><%= @call.subject %></h3>
-  <p><%= @call.message %></p>
+  <p><%= @call.message.html_safe %></p>
   <div>
     <% unless @call.draft? %>
       <span class="badge"><%= t 'misc.published_at' %> <%= l @call.sent_at, format: :short %></span>
@@ -8,12 +8,12 @@
       <span class="badge"><%= t 'misc.draft' %></span>
     <% end %>
     <span class="label"><%= @call.tenement.tenant.name %> - <%= @call.tenement.location %></span>
-    <hr />
-    <span>
-      <%= render partial: 'shared/attachments/attachments', locals: { attachments: @call.attachments } %>
-    </span>    
-  </div> 
+    <% unless @call.attachments.empty? %>
+      <hr />
+      <span>
+        <%= render partial: 'shared/attachments/attachments', locals: { attachments: @call.attachments } %>
+      </span>
+    <% end %>
+  </div>
 </div>
-<hr />
-
 

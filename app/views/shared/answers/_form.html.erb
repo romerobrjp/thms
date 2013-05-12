@@ -1,22 +1,22 @@
 <%= simple_nested_form_for Answer.new, :url => answers_path, :html => {:multipart => true} do |f| %>
-  <legend>
-    <h4><%= t 'misc.write_answer_comment' %></h4>
-  </legend>
-  <%= f.input :message, as: 'text', input_html: { rows: 5, class: 'cleditor' } %>
-  <%= f.input :answerable_id, as: 'hidden', input_html: { value: answerable.id } %>
-  <%= f.input :answerable_type, as: 'hidden', input_html: { value: answerable.class.name } %>
-  <%= hidden_field_tag 'redirect_url', redirect_url %>
+  <fieldset>
+    <legend>
+      <h4><%= t 'misc.write_answer_comment' %></h4>
+    </legend>
+    <%= f.input :message, as: 'text', input_html: { rows: 5, class: 'cleditor' } %>
+    <%= f.input :answerable_id, as: 'hidden', input_html: { value: answerable.id } %>
+    <%= f.input :answerable_type, as: 'hidden', input_html: { value: answerable.class.name } %>
+    <%= hidden_field_tag 'redirect_url', redirect_url %>
 
-  <%= f.fields_for :attachments do |attachment_form| %>
-    <%= render partial: 'shared/attachments/form', locals: { f: attachment_form } %>
-    <%= attachment_form.link_to_remove t('attachment.misc.remove_attachment') %>
-  <% end %>
-  <%= f.link_to_add t('attachment.misc.add_attachment'), :attachments %>
+    <%= f.fields_for :attachments do |attachment_form| %>
+      <%= render partial: 'shared/attachments/form', locals: { f: attachment_form } %>
+      <%= attachment_form.link_to_remove t('attachment.misc.remove_attachment') %>
+    <% end %>
+    <%= f.link_to_add t('attachment.misc.add_attachment'), :attachments %>
 
-  <div class="control-group">
-    <div class="controls text-right">
+    <div class="form-actions">
       <%= f.button :submit, :class => 'btn-primary' %>
     </div>
-  </div>
+  </fieldset>
 
 <% end %>

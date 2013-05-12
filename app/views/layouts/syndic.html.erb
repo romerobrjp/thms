@@ -45,8 +45,12 @@
                   <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="#"><i class="icon-user"></i> Profile</a></li>
-                  <li><a href="login.html"><i class="icon-off"></i> Logout</a></li>
+                  <li><%= link_to syndic_me_path do %>
+                    <i class="icon-user"></i> <%= t('misc.personal_info') %></li>
+                  <% end %>
+                  <li><%= link_to destroy_user_session_path, :method => :delete do %>
+                    <i class="icon-off"></i> Logout
+                  <% end %>
                 </ul>
               </li>
             </ul>

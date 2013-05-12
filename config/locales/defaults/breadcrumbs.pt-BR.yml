@@ -43,3 +43,6 @@ pt-BR:
       me:
         me: :syndic.me.show.title
         edit_me: :syndic.me.edit.title
+      expense_types:
+        expense_types: :activerecord.models.expense_type.other
+        townhouses: :activerecord.models.townhouse.other

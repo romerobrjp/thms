@@ -1,6 +1,3 @@
-<div class="page-header">
-  <h4><%= t 'misc.answers_comments' %></h4>
-</div>
 <% answers.each do |answer| %>
   <%= render partial: 'shared/answers/answer', locals: { answer: answer } %>
 <% end %>

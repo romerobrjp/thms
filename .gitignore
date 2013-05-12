@@ -22,3 +22,27 @@
 *.sublime-project
 
 *.sublime-workspace
+
+app/assets/.DS_Store
+
+app/assets/.DS_Store
+
+app/assets/images/.DS_Store
+
+app/assets/images/.DS_Store
+
+app/views/.DS_Store
+
+app/views/.DS_Store
+
+app/assets/.DS_Store
+
+app/assets/.DS_Store
+
+app/assets/images/.DS_Store
+
+app/assets/javascripts/.DS_Store
+
+app/views/.DS_Store
+
+app/views/.DS_Store

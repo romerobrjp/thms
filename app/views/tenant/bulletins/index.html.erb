@@ -1,28 +1,37 @@
 <% model_class = Bulletin %>
-<div class="page-header">
-  <h1><%= t '.title' %></h1>
-</div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:subject) %></th>
-      <th><%= model_class.human_attribute_name(:syndic) %></th>
-      <th><%= model_class.human_attribute_name(:sent_at) %></th>
-      <th><%= t 'helpers.actions' %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @bulletins.each do |bulletin| %>
-      <tr>
-        <td><%= link_to bulletin.id, tenant_tenement_bulletin_path(@tenement, bulletin) %></td>
-        <td><%= bulletin.subject %></td>
-        <td><%= bulletin.syndic.name %></td>
-        <td><%= l(bulletin.sent_at, format: :long) %></td>
-        <td>
-          <%= link_to t('helpers.links.show'), tenant_tenement_bulletin_path(@tenement, bulletin), :class => 'btn btn-mini' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="box span12">
+  <div class="box-header">
+    <h2><i class="icon-align-justify"></i><span class="break"></span>
+      <%= t '.title' %>
+    </h2>
+    <div class="box-icon">
+      <a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
+    </div>
+  </div>
+  <div class="box-content">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= model_class.human_attribute_name(:id) %></th>
+          <th><%= model_class.human_attribute_name(:subject) %></th>
+          <th><%= model_class.human_attribute_name(:syndic) %></th>
+          <th><%= model_class.human_attribute_name(:sent_at) %></th>
+          <th><%= t 'helpers.actions' %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @bulletins.each do |bulletin| %>
+          <tr>
+            <td><%= link_to bulletin.id, tenant_tenement_bulletin_path(@tenement, bulletin) %></td>
+            <td><%= bulletin.subject %></td>
+            <td><%= bulletin.syndic.name %></td>
+            <td><%= l(bulletin.sent_at, format: :long) %></td>
+            <td>
+              <%= link_to t('helpers.links.show'), tenant_tenement_bulletin_path(@tenement, bulletin), :class => 'btn btn-mini btn-info' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>    

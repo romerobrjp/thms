@@ -1,6 +1,6 @@
 <%= simple_nested_form_for [:tenant, @tenement, @call], :html => { :class => 'form-horizontal', multipart: true } do |f| %>
   <%= f.input :subject %>
-  <%= f.input :message, input_html: { id: 'text-rich' } %>
+  <%= f.input :message, input_html: { class: 'cleditor' } %>
   <%= f.input :public %>
 
   <%= f.simple_fields_for :attachments do |attachment_form| %>

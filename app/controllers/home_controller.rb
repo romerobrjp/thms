@@ -6,6 +6,8 @@ class HomeController < ApplicationController
       elsif current_user.type == Syndic.name
         redirect_to syndic_home_path
       end
+    else
+      redirect_to new_user_session_path
     end
   end
 
