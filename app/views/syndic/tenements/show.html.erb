@@ -1,39 +1,48 @@
 <%- model_class = Tenement -%>
-<div class="page-header">
-  <h1><%=t '.title' %></h1>
-</div>
+<div class="box span12">
+  <div class="box-header">
+    <h2><i class="icon-align-justify"></i><span class="break"></span>
+      <%=t '.title' %>
+    </h2>
+    <div class="box-icon">
+      <a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
+    </div>
+  </div>
+  <div class="box-content">
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:location) %>:</strong></dt>
-  <dd><%= @tenement.location %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:rent_value) %>:</strong></dt>
-  <dd><%= @tenement.rent_value %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:tenant) %>:</strong></dt>
-  <dd><%= @tenement.tenant.name %></dd>
-</dl>
+    <dl class="dl-horizontal">
+      <dt><strong><%= model_class.human_attribute_name(:location) %>:</strong></dt>
+      <dd><%= @tenement.location %></dd>
+      <dt><strong><%= model_class.human_attribute_name(:rent_value) %>:</strong></dt>
+      <dd><%= @tenement.rent_value %></dd>
+      <dt><strong><%= model_class.human_attribute_name(:tenant) %>:</strong></dt>
+      <dd><%= @tenement.tenant.name %></dd>
+    </dl>
 
-<%- tenant_class = Tenant -%>
-<div class="page-header">
-  <h3><%= tenant_class.model_name.human %></h3>
-</div>
+    <%- tenant_class = Tenant -%>
+    <div class="page-header">
+      <h3><%= tenant_class.model_name.human %></h3>
+    </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= tenant_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @tenement.tenant.name %></dd>
-  <dt><strong><%= tenant_class.human_attribute_name(:cpf) %>:</strong></dt>
-  <dd><%= @tenement.tenant.cpf %></dd>
-  <dt><strong><%= tenant_class.human_attribute_name(:email) %>:</strong></dt>
-  <dd><%= @tenement.tenant.email %></dd>
-</dl>
+    <dl class="dl-horizontal">
+      <dt><strong><%= tenant_class.human_attribute_name(:name) %>:</strong></dt>
+      <dd><%= @tenement.tenant.name %></dd>
+      <dt><strong><%= tenant_class.human_attribute_name(:cpf) %>:</strong></dt>
+      <dd><%= @tenement.tenant.cpf %></dd>
+      <dt><strong><%= tenant_class.human_attribute_name(:email) %>:</strong></dt>
+      <dd><%= @tenement.tenant.email %></dd>
+    </dl>
 
-<%= render partial: 'shared/addresses/address', locals: { address: @tenement.tenant.address } %>
-<%= render partial: 'shared/phones/phones', locals: { phones: @tenement.tenant.phones } %>
+    <%= render partial: 'shared/addresses/address', locals: { address: @tenement.tenant.address } %>
+    <%= render partial: 'shared/phones/phones', locals: { phones: @tenement.tenant.phones } %>
 
-<div class="form-actions">
-  <%= link_to t("helpers.links.back"), syndic_townhouse_tenements_path(@townhouse), :class => 'btn'  %>
-  <%= link_to t("helpers.links.edit"), edit_syndic_townhouse_tenement_path(@townhouse, @tenement), :class => 'btn' %>
-  <%= link_to t("helpers.links.destroy"), syndic_townhouse_tenement_path(@townhouse, @tenement),
-              :method => 'delete',
-              :data => { :confirm => t("helpers.links.confirm") },
-              :class => 'btn btn-danger' %>
+    <div class="text-right">
+      <%= link_to t("helpers.links.back"), syndic_townhouse_tenements_path(@townhouse), :class => 'btn'  %>
+      <%= link_to t("helpers.links.edit"), edit_syndic_townhouse_tenement_path(@townhouse, @tenement), :class => 'btn' %>
+      <%= link_to t("helpers.links.destroy"), syndic_townhouse_tenement_path(@townhouse, @tenement),
+                  :method => 'delete',
+                  :data => { :confirm => t("helpers.links.confirm") },
+                  :class => 'btn btn-danger' %>
+    </div>
+  </div>
 </div>

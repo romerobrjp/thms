@@ -1,21 +1,29 @@
 <%- model_class = Townhouse -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+<div class="box span12">
+  <div class="box-header">
+    <h2>
+      <i class="icon-align-justify"></i><span class="break"></span>
+      <%=t '.title', :default => model_class.model_name.human %>
+    </h2>
+    <div class="box-icon">
+      <a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
+    </div>
+  </div>
+  <div class="box-content">
+
+    <dl class="dl-horizontal">
+      <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+      <dd><%= @townhouse.name %></dd>
+      <dt><strong><%= model_class.human_attribute_name(:information) %>:</strong></dt>
+      <dd><%= @townhouse.information %></dd>
+    </dl>
+
+    <%= render partial: 'shared/addresses/address', locals: { address: @townhouse.address } %>
+    <%= render partial: 'shared/phones/phones', locals: { phones: @townhouse.phones } %>
+
+    <div class="text-right">
+      <%= link_to t("helpers.links.back"), syndic_townhouses_path, :class => 'btn'  %>
+      <%= link_to t("helpers.links.edit"), edit_syndic_townhouse_path(@townhouse), :class => 'btn'  %>
+    </div>
+  </div>
 </div>
-
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @townhouse.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:information) %>:</strong></dt>
-  <dd><%= @townhouse.information %></dd>
-</dl>
-
-<%= render partial: 'shared/addresses/address', locals: { address: @townhouse.address } %>
-<%= render partial: 'shared/phones/phones', locals: { phones: @townhouse.phones } %>
-
-<div class="form-actions">
-  <%= link_to t("helpers.links.back"), syndic_townhouses_path, :class => 'btn'  %>
-  <%= link_to t("helpers.links.edit"), edit_syndic_townhouse_path(@townhouse), :class => 'btn'  %>
-</div>
-
-<%= render partial: 'sidebar' %>

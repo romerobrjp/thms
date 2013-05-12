@@ -59,7 +59,7 @@ pt-BR:
     at: 'no'
     information: 'Informações'
     welcome_user: 'Bem vindo, %{name}'
-    personal_info: 'Minhas Informações'
+    personal_info: 'Perfil'
   date:
     abbr_day_names:
     - Dom
