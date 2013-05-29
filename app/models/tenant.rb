@@ -9,7 +9,8 @@ class Tenant < User
   accepts_nested_attributes_for :phones, allow_destroy: true
 
   attr_accessible :name, :cpf, :active, :address_attributes, :phones_attributes
-
+  
+  validates_uniqueness_of  :email, :case_sensitive => false, :allow_blank => true, :if => :email_changed?, :scope => :type
 
   def cpf_name
     "#{self.cpf} - #{self.name}"

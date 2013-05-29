@@ -17,11 +17,13 @@
 /public/uploads
 /public/assets
 
-*.DS_Store
+.DS_Store
 
 *.sublime-project
 
 *.sublime-workspace
+
+app/.DS_Store
 
 app/assets/.DS_Store
 

@@ -5,7 +5,11 @@ class User < ActiveRecord::Base
          :trackable,
          :token_authenticatable
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :type
+  # Virtual attribute for authenticating by either username or email
+  # This is in addition to a real persisted field like 'username'
+  attr_accessor :login
+  
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :type, :login, :cpf
 
   validates_uniqueness_of     :email, :case_sensitive => false, :allow_blank => false, :if => :email_changed?, :scope => :type
   validates_format_of         :email, :with  => Devise.email_regexp, :allow_blank => false, :if => :email_changed?
@@ -15,7 +19,10 @@ class User < ActiveRecord::Base
 
 
   def self.find_for_authentication(warden_conditions)
-    User.find_by_email_and_type(warden_conditions[:email], warden_conditions[:type])
+    conditions = warden_conditions.dup
+    puts conditions
+    puts 'TESTANDO'
+    where("(cpf = :value OR lower(email) = :value) AND type = :type", {value: conditions[:login], type: conditions[:type]}).first
   end
 
 end
